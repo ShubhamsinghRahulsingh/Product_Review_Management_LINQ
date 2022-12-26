@@ -15,6 +15,18 @@ namespace ProductReviewManagementProblem
             this.productReviews = list;
             Console.WriteLine("Reviews Added Successfully to the list");
         }
+        public void RetrieveTopRecords(List<ProductReview> list)
+        {
+            //Standard Query Operators in Method Syntax(Method1)
+            var result = this.productReviews.OrderByDescending(x => x.Rating).Take(3);
+            PrintList(result.ToList());
+
+           // //Standard Query Operators in Query Syntax(Method2)
+            //var query = (from products in productReviews
+            //             orderby products.Rating descending
+            //             select products).Take(3);
+            //             PrintList(query.ToList());
+        }
         public void PrintList(List<ProductReview> list)
         {
             foreach (ProductReview productReview in list)

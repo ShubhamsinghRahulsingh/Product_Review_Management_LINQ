@@ -34,7 +34,7 @@ namespace ProductReviewManagementProblem
             while(flag)
             {
                 Console.WriteLine("--------------------------------------");
-                Console.WriteLine("Select From Given Operations\n\n1.Add Default values to the list we created\n2.Display List\n3.Exit");
+                Console.WriteLine("Select From Given Operations\n\n1.Add Default values to the list we created\n2.Display List\n3.Retrieve Top Records\n4.Exit");
                 int sel=Convert.ToInt32(Console.ReadLine());
                 switch(sel)
                 {
@@ -45,6 +45,9 @@ namespace ProductReviewManagementProblem
                         manage.PrintList(productReviews);
                         break;
                     case 3:
+                        manage.RetrieveTopRecords(productReviews);
+                        break;
+                    case 4:
                         flag = false;
                         break;
                 }
