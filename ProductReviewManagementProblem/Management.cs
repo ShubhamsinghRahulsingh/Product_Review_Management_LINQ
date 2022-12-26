@@ -41,6 +41,14 @@ namespace ProductReviewManagementProblem
                 PrintList(data.ToList());
             }
         }
+        public void GetParticularFields(List<ProductReview> list)
+        {
+            var result = this.productReviews.Select(x => new { x.ProductId, x.Rating });
+            foreach (var data in result)
+            {
+                Console.WriteLine("ProductId:"+data.ProductId + " " +"Rating:"+ data.Rating);
+            }
+        }
         public void PrintList(List<ProductReview> list)
         {
             foreach (ProductReview productReview in list)
