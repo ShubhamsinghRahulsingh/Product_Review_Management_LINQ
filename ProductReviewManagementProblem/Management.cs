@@ -49,6 +49,11 @@ namespace ProductReviewManagementProblem
                 Console.WriteLine("ProductId:"+data.ProductId + " " +"Rating:"+ data.Rating);
             }
         }
+        public void SkipTopFiveRecords(List<ProductReview> list)
+        {
+            var result = this.productReviews.OrderByDescending(x => x.Rating).Skip(5);
+            PrintList(result.ToList());
+        }
         public void PrintList(List<ProductReview> list)
         {
             foreach (ProductReview productReview in list)
