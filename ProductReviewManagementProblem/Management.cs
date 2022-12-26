@@ -32,6 +32,15 @@ namespace ProductReviewManagementProblem
             var result = this.productReviews.Where(x => x.Rating > 3 && (x.ProductId == 1 || x.ProductId == 3 || x.ProductId == 9));
             PrintList(result.ToList());
         }
+        public void CountNoOfReviewsForProductID(List<ProductReview> list)
+        {
+            var result = this.productReviews.GroupBy(x => x.ProductId);
+            foreach (var data in result)
+            {
+                Console.WriteLine("No Of Reviews For ProductId {0}:{1}",data.Key, data.Count());
+                PrintList(data.ToList());
+            }
+        }
         public void PrintList(List<ProductReview> list)
         {
             foreach (ProductReview productReview in list)
