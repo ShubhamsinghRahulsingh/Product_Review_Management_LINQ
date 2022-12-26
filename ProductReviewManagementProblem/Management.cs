@@ -87,6 +87,11 @@ namespace ProductReviewManagementProblem
             var result = this.productReviews.Where(x => x.Review.Contains("Good"));
             PrintList(result.ToList());
         }
+        public void RetrieveUsingUserId(List<ProductReview> list)
+        {
+            var result = this.productReviews.Where(x => x.UserId == 10).OrderBy(x => x.Rating);
+            PrintList(result.ToList());
+        }
         public void PrintDatatable(DataTable dataTable)
         {
             Console.WriteLine("ProductID      UserID       Rating       Review           IsLike");
