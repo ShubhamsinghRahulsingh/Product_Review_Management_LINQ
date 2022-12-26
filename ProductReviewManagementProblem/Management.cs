@@ -82,6 +82,11 @@ namespace ProductReviewManagementProblem
                 Console.WriteLine("For ProductId {0} Average Rating is {1}", data.Key, avg);
             }
         }
+        public void RetrieveForReviewGood(List<ProductReview> list)
+        {
+            var result = this.productReviews.Where(x => x.Review.Contains("Good"));
+            PrintList(result.ToList());
+        }
         public void PrintDatatable(DataTable dataTable)
         {
             Console.WriteLine("ProductID      UserID       Rating       Review           IsLike");
