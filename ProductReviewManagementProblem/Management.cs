@@ -27,6 +27,11 @@ namespace ProductReviewManagementProblem
             //             select products).Take(3);
             //             PrintList(query.ToList());
         }
+        public void RetrieveAllRecordsAboveRatingThree(List<ProductReview> list)
+        {
+            var result = this.productReviews.Where(x => x.Rating > 3 && (x.ProductId == 1 || x.ProductId == 3 || x.ProductId == 9));
+            PrintList(result.ToList());
+        }
         public void PrintList(List<ProductReview> list)
         {
             foreach (ProductReview productReview in list)
