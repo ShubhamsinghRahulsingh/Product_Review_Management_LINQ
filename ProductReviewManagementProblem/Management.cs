@@ -73,6 +73,15 @@ namespace ProductReviewManagementProblem
             var result = this.productReviews.Where(x => x.IsLike==true);
             PrintList(result.ToList());
         }
+        public void AverageRatingForEachProductId(List<ProductReview> list)
+        {
+            var result = this.productReviews.GroupBy(x => x.ProductId);
+            foreach (var data in result)
+            {
+                var avg = data.Average(x => x.Rating);
+                Console.WriteLine("For ProductId {0} Average Rating is {1}", data.Key, avg);
+            }
+        }
         public void PrintDatatable(DataTable dataTable)
         {
             Console.WriteLine("ProductID      UserID       Rating       Review           IsLike");

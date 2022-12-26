@@ -34,7 +34,7 @@ namespace ProductReviewManagementProblem
             while(flag)
             {
                 Console.WriteLine("--------------------------------------");
-                Console.WriteLine("Select From Given Operations\n\n1.Add Default values to the list we created\n2.Display List\n3.Retrieve Top Records\n4.Retrieve Records With Rating Above Three For Id 1,3,9\n5.Count No OfReviews For Each ProductId\n6.Retrieve Only ProductId and Review\n7.Skip Top Five Records\n8.Create Datatable and print it\n9.Retrieve Records Whose IsLike is true\n10.Exit");
+                Console.WriteLine("Select From Given Operations\n\n1.Add Default values to the list we created\n2.Display List\n3.Retrieve Top Records\n4.Retrieve Records With Rating Above Three For Id 1,3,9\n5.Count No OfReviews For Each ProductId\n6.Retrieve Only ProductId and Review\n7.Skip Top Five Records\n8.Create Datatable and print it\n9.Retrieve Records Whose IsLike is true\n10.Average Rating For Each ProductId\n11.Exit");
                 int sel=Convert.ToInt32(Console.ReadLine());
                 switch(sel)
                 {
@@ -68,6 +68,9 @@ namespace ProductReviewManagementProblem
                         manage.RetrieveUsingIsLikeForTrue(getTable);
                         break;
                     case 10:
+                        manage.AverageRatingForEachProductId(productReviews);
+                        break;
+                    case 11:
                         flag = false;
                         break;
                 }
