@@ -54,7 +54,7 @@ namespace ProductReviewManagementProblem
             var result = this.productReviews.OrderByDescending(x => x.Rating).Skip(5);
             PrintList(result.ToList());
         }
-        public void CreateDataTable(List<ProductReview> list)
+        public DataTable CreateDataTable(List<ProductReview> list)
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ProductId", typeof(int));
@@ -66,12 +66,21 @@ namespace ProductReviewManagementProblem
             {
                 dataTable.Rows.Add(data.ProductId,data.UserId,data.Rating,data.Review,data.IsLike);
             }
+            return dataTable;
+        }
+        public void RetrieveUsingIsLikeForTrue(DataTable dataTable)
+        {
+            var result = this.productReviews.Where(x => x.IsLike==true);
+            PrintList(result.ToList());
+        }
+        public void PrintDatatable(DataTable dataTable)
+        {
             Console.WriteLine("ProductID      UserID       Rating       Review           IsLike");
             foreach (DataRow row in dataTable.Rows)
             {
                 for (int i = 0; i < row.ItemArray.Length; i++)
                 {
-                    Console.Write(  row.ItemArray[i] + "             ");
+                    Console.Write(row.ItemArray[i] + "             ");
                 }
                 Console.WriteLine();
             }
